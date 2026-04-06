@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nishmas Mishna — Daily Torah Learning in Your Merit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #B8953F; --gold-light: #D4AF5A; --gold-pale: #F0E4C0;
+  --cream: #FDFAF3; --parchment: #F5EDD8;
+  --dark: #13100A; --dark2: #1E1A10;
+  --text: #2A2215; --muted: #7A6B4A;
+  --border: rgba(184,149,63,0.22); --green: #2D5A3F;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; background: rgba(19,16,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(184,149,63,0.15); }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--gold-light); text-decoration: none; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { font-size: 13px; color: rgba(253,250,243,0.5); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold-light); }
+.nav-cta { background: var(--gold) !important; color: var(--dark) !important; padding: 8px 20px; border-radius: 2px; font-weight: 600 !important; }
+@media (max-width: 640px) { nav { padding: 0 20px; } .nav-links { display: none; } }
+
+/* HERO */
+.hero { min-height: 100vh; background: var(--dark); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 100px 24px 80px; position: relative; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(184,149,63,0.22) 0%, transparent 65%), radial-gradient(ellipse 50% 40% at 90% 110%, rgba(45,90,63,0.1) 0%, transparent 60%); pointer-events: none; }
+.hero-watermark { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: clamp(80px, 20vw, 200px); color: var(--gold); opacity: 0.04; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; user-select: none; white-space: nowrap; letter-spacing: 12px; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(184,149,63,0.35); color: var(--gold-light); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; padding: 7px 20px; border-radius: 2px; margin-bottom: 36px; position: relative; animation: fadeUp 0.7s ease both; }
+.hero-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+.hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 8vw, 92px); font-weight: 600; color: var(--cream); line-height: 1.05; position: relative; animation: fadeUp 0.8s ease 0.1s both; max-width: 800px; }
+.hero h1 em { font-style: italic; color: var(--gold-light); }
+.hero-sub { font-size: clamp(15px, 2vw, 18px); color: rgba(253,250,243,0.55); margin-top: 24px; line-height: 1.75; max-width: 520px; position: relative; animation: fadeUp 0.9s ease 0.2s both; font-weight: 300; }
+.hero-price-tag { margin-top: 32px; display: inline-flex; align-items: baseline; gap: 6px; background: rgba(184,149,63,0.1); border: 1px solid rgba(184,149,63,0.28); border-radius: 2px; padding: 10px 24px; animation: fadeUp 1s ease 0.25s both; position: relative; }
+.hero-price-tag .from { font-size: 13px; color: rgba(253,250,243,0.45); }
+.hero-price-tag .amount { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 700; color: var(--gold-light); line-height: 1; }
+.hero-price-tag .per { font-size: 13px; color: rgba(253,250,243,0.45); }
+.hero-cta { display: flex; gap: 12px; margin-top: 44px; flex-wrap: wrap; justify-content: center; position: relative; animation: fadeUp 1s ease 0.3s both; }
+.btn-primary { background: var(--gold); color: var(--dark); padding: 15px 36px; border-radius: 2px; font-weight: 600; font-size: 14px; text-decoration: none; letter-spacing: 0.5px; border: none; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s, transform 0.15s; display: inline-block; }
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+.btn-secondary { background: transparent; color: rgba(253,250,243,0.7); padding: 15px 36px; border-radius: 2px; border: 1px solid rgba(253,250,243,0.18); font-weight: 400; font-size: 14px; text-decoration: none; letter-spacing: 0.5px; cursor: pointer; font-family: 'Inter', sans-serif; transition: border-color 0.2s, color 0.2s, transform 0.15s; }
+.btn-secondary:hover { border-color: rgba(253,250,243,0.45); color: var(--cream); transform: translateY(-2px); }
+.hero-scroll { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; color: rgba(253,250,243,0.22); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; animation: fadeUp 1.1s ease 0.5s both; }
+.scroll-line { width: 1px; height: 52px; background: linear-gradient(to bottom, rgba(184,149,63,0.6), transparent); animation: scrollPulse 2.2s ease-in-out infinite; }
+
+/* SECTION UTILITY */
+.section-wrap { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+@media (max-width: 640px) { .section-wrap { padding: 0 20px; } }
+.section-header { text-align: center; margin-bottom: 56px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 16px; }
+.eyebrow::before, .eyebrow::after { content: ''; display: block; height: 1px; width: 40px; background: var(--gold); opacity: 0.4; }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 48px); font-weight: 600; color: var(--dark); line-height: 1.15; }
+.section-title.light { color: var(--cream); }
+.section-sub { font-size: 15px; color: var(--muted); margin-top: 14px; font-weight: 300; line-height: 1.75; max-width: 540px; margin-left: auto; margin-right: auto; }
+.section-sub.light { color: rgba(253,250,243,0.5); }
+
+/* WHY */
+.why-section { padding: 100px 0 0; }
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); border: 1px solid var(--border); }
+.why-card { padding: 40px 32px; background: white; border-right: 1px solid var(--border); transition: background 0.25s; }
+.why-card:last-child { border-right: none; }
+.why-card:hover { background: var(--parchment); }
+.why-num { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: var(--gold); opacity: 0.2; line-height: 1; margin-bottom: 16px; }
+.why-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 600; margin-bottom: 10px; color: var(--dark); }
+.why-card p { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+/* ZECHUS */
+.zechus-section { background: var(--dark2); padding: 96px 0; margin-top: 96px; }
+.zechus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border: 1px solid rgba(184,149,63,0.12); margin-top: 56px; }
+.zechus-card { padding: 36px 28px; background: rgba(253,250,243,0.02); border-right: 1px solid rgba(184,149,63,0.1); transition: background 0.25s; }
+.zechus-card:last-child { border-right: none; }
+.zechus-card:hover { background: rgba(184,149,63,0.06); }
+.zechus-glyph { font-size: 24px; margin-bottom: 16px; }
+.zechus-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; color: var(--gold-light); margin-bottom: 10px; }
+.zechus-card p { font-size: 13px; color: rgba(253,250,243,0.4); line-height: 1.7; font-weight: 300; }
+
+/* QUOTES */
+.quotes-section { padding: 96px 0; }
+.quotes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.quote-card { background: var(--parchment); border: 1px solid var(--border); border-top: 3px solid var(--gold); padding: 40px 32px; }
+.quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 72px; color: var(--gold); opacity: 0.18; line-height: 0.6; margin-bottom: 20px; display: block; }
+.quote-card blockquote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(16px, 2vw, 20px); color: var(--dark); line-height: 1.65; }
+.quote-hebrew { direction: rtl; font-size: clamp(14px, 1.8vw, 17px); }
+.quote-card cite { display: block; margin-top: 20px; font-style: normal; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+
+/* PRICING */
+.pricing-section { padding: 96px 0; }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+.plan-card { background: white; border: 1px solid var(--border); border-radius: 2px; padding: 36px 28px; position: relative; transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s; display: flex; flex-direction: column; }
+.plan-card:hover { box-shadow: 0 16px 56px rgba(26,21,7,0.1); transform: translateY(-5px); border-color: var(--gold); }
+.plan-card.featured { background: var(--dark); border: 2px solid var(--gold); }
+.plan-card.featured:hover { box-shadow: 0 16px 56px rgba(184,149,63,0.18); }
+.plan-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--dark); font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 700; padding: 5px 16px; border-radius: 2px; white-space: nowrap; }
+.plan-badge.green { background: var(--green); color: white; }
+.plan-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 600; margin-bottom: 8px; color: var(--dark); line-height: 1.2; }
+.plan-card.featured .plan-name { color: var(--cream); }
+.plan-desc { font-size: 13px; color: var(--muted); margin-bottom: 24px; line-height: 1.6; font-weight: 300; }
+.plan-card.featured .plan-desc { color: rgba(253,250,243,0.4); }
+.plan-price { display: flex; align-items: baseline; gap: 3px; margin-bottom: 4px; }
+.plan-currency { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--gold); }
+.plan-amount { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 700; color: var(--gold); line-height: 1; }
+.plan-period { font-size: 12px; color: var(--muted); margin-bottom: 24px; font-weight: 300; }
+.plan-card.featured .plan-period { color: rgba(253,250,243,0.32); }
+.plan-includes { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
+.plan-features { list-style: none; margin-bottom: 20px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1; }
+.plan-features li { font-size: 13px; color: var(--text); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+.plan-card.featured .plan-features li { color: rgba(253,250,243,0.72); }
+.plan-features li::before { content: '✦'; color: var(--gold); font-size: 9px; margin-top: 3px; flex-shrink: 0; }
+
+/* DURATION SELECTOR */
+.plan-duration-wrap { margin-bottom: 16px; }
+.plan-duration-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 8px; }
+.plan-card.featured .plan-duration-label { color: var(--gold-light); }
+.plan-duration-select { width: 100%; padding: 10px 32px 10px 14px; border-radius: 2px; font-family: 'Inter', sans-serif; font-size: 12px; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23B8953F' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; border: 1px solid var(--border); background-color: white; color: var(--text); outline: none; transition: border-color 0.2s; }
+.plan-card.featured .plan-duration-select { background-color: rgba(253,250,243,0.07); color: var(--cream); border-color: rgba(184,149,63,0.3); }
+.plan-duration-select:focus { border-color: var(--gold); }
+.plan-duration-note { font-size: 11px; color: var(--muted); margin-top: 6px; font-style: italic; }
+.plan-card.featured .plan-duration-note { color: rgba(253,250,243,0.3); }
+
+.plan-btn { display: block; width: 100%; text-align: center; padding: 14px; border-radius: 2px; font-size: 12px; font-weight: 600; letter-spacing: 1px; cursor: pointer; text-decoration: none; border: none; font-family: 'Inter', sans-serif; transition: opacity 0.2s, transform 0.15s; text-transform: uppercase; }
+.plan-btn:hover { transform: translateY(-1px); opacity: 0.88; }
+.btn-dark { background: var(--dark); color: var(--cream); }
+.btn-featured { background: var(--gold); color: var(--dark); }
+
+/* CUSTOM BUILDER */
+.custom-section { background: var(--parchment); padding: 96px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.builder-card { background: white; border: 1px solid var(--border); border-radius: 2px; padding: 48px; margin-top: 48px; }
+@media (max-width: 640px) { .builder-card { padding: 24px 18px; } }
+.builder-subtitle { font-size: 14px; color: var(--muted); margin-bottom: 36px; line-height: 1.65; font-weight: 300; }
+.builder-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.builder-option { border: 1.5px solid var(--border); border-radius: 2px; padding: 24px 20px; cursor: pointer; transition: border-color 0.2s, background 0.2s; position: relative; user-select: none; }
+.builder-option:hover { border-color: var(--gold); background: var(--cream); }
+.builder-option.selected { border-color: var(--gold); background: var(--gold-pale); }
+.builder-option.selected .builder-check { opacity: 1; }
+.builder-check { position: absolute; top: 12px; right: 12px; width: 20px; height: 20px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; font-size: 11px; color: white; font-weight: 700; }
+.builder-option-icon { font-size: 22px; margin-bottom: 10px; }
+.builder-option-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+.builder-option-price { font-size: 12px; color: var(--gold); font-weight: 600; }
+.builder-duration-row { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+.builder-duration-row label { font-size: 12px; color: var(--muted); font-weight: 400; white-space: nowrap; }
+.builder-duration-select { padding: 10px 36px 10px 14px; border: 1px solid var(--border); border-radius: 2px; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text); background-color: white; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23B8953F' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; outline: none; flex: 1; min-width: 160px; }
+.builder-total { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; padding-top: 32px; border-top: 1px solid var(--border); }
+.builder-total-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; letter-spacing: 1px; text-transform: uppercase; }
+.builder-total-price { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 700; color: var(--gold); line-height: 1; }
+.builder-total-per { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.builder-none { font-size: 16px; color: var(--muted); font-style: italic; font-family: 'Cormorant Garamond', serif; }
+
+/* SEFER */
+.sefer-section { padding: 96px 0; }
+.sefer-card { background: var(--dark); border: 1px solid rgba(184,149,63,0.18); border-radius: 2px; padding: 56px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-top: 48px; }
+@media (max-width: 768px) { .sefer-card { grid-template-columns: 1fr; gap: 36px; padding: 32px 22px; } }
+.sefer-left h3 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--cream); margin-bottom: 16px; line-height: 1.2; }
+.sefer-left p { font-size: 14px; color: rgba(253,250,243,0.45); line-height: 1.75; font-weight: 300; margin-bottom: 20px; }
+.sefer-examples { display: flex; flex-wrap: wrap; gap: 8px; }
+.sefer-tag { font-size: 12px; border: 1px solid rgba(184,149,63,0.28); color: var(--gold-light); padding: 5px 12px; border-radius: 2px; }
+.sefer-form { display: flex; flex-direction: column; gap: 13px; }
+.sefer-input { width: 100%; padding: 13px 16px; border: 1px solid rgba(184,149,63,0.22); border-radius: 2px; background: rgba(253,250,243,0.04); font-family: 'Inter', sans-serif; font-size: 13px; color: var(--cream); outline: none; transition: border-color 0.2s; }
+.sefer-input:focus { border-color: var(--gold); }
+.sefer-input::placeholder { color: rgba(253,250,243,0.28); }
+.sefer-note { font-size: 11px; color: rgba(253,250,243,0.28); font-style: italic; line-height: 1.5; }
+
+/* SIGNUP */
+.signup-section { padding: 96px 0; }
+.signup-inner { max-width: 620px; margin: 0 auto; padding: 0 40px; }
+@media (max-width: 640px) { .signup-inner { padding: 0 20px; } }
+.signup-form { display: flex; flex-direction: column; gap: 13px; margin-top: 48px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+@media (max-width: 560px) { .field-row { grid-template-columns: 1fr; } }
+.form-input { width: 100%; padding: 14px 16px; border: 1px solid var(--border); border-radius: 2px; background: white; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text); transition: border-color 0.2s; outline: none; }
+.form-input:focus { border-color: var(--gold); }
+.form-input::placeholder { color: #B0A07A; }
+.form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23B8953F' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; cursor: pointer; }
+.form-divider { display: flex; align-items: center; gap: 14px; margin: 6px 0; }
+.form-divider-line { flex: 1; height: 1px; background: var(--border); }
+.form-divider-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; white-space: nowrap; }
+.submit-btn { background: var(--dark); color: var(--cream); border: none; padding: 16px; border-radius: 2px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.15s; width: 100%; margin-top: 6px; }
+.submit-btn:hover { background: var(--text); transform: translateY(-1px); }
+.form-note { font-size: 12px; color: var(--muted); text-align: center; font-weight: 300; }
+.success-msg { display: none; background: var(--parchment); border: 1px solid rgba(184,149,63,0.35); border-left: 3px solid var(--gold); border-radius: 2px; padding: 24px; text-align: center; color: var(--green); font-weight: 500; font-size: 15px; margin-top: 16px; }
+
+/* CONTACT */
+.contact-section { background: var(--dark2); padding: 80px 0; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); border: 1px solid rgba(184,149,63,0.1); margin-top: 48px; }
+.contact-item { background: var(--dark2); padding: 36px 32px; display: flex; align-items: center; gap: 18px; text-decoration: none; border-right: 1px solid rgba(184,149,63,0.1); transition: background 0.2s; }
+.contact-item:last-child { border-right: none; }
+.contact-item:hover { background: rgba(184,149,63,0.06); }
+.contact-icon { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.contact-icon.wa { background: #25D366; }
+.contact-icon.email { background: rgba(184,149,63,0.15); border: 1px solid rgba(184,149,63,0.25); }
+.contact-icon.bank { background: rgba(184,149,63,0.15); border: 1px solid rgba(184,149,63,0.25); }
+.contact-text-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(253,250,243,0.3); margin-bottom: 4px; }
+.contact-text-value { font-size: 14px; color: var(--cream); font-weight: 400; }
+
+/* FOOTER */
+footer { background: var(--dark); text-align: center; padding: 36px 24px; border-top: 1px solid rgba(184,149,63,0.1); }
+footer p { color: rgba(253,250,243,0.18); font-size: 12px; font-weight: 300; }
+footer a { color: var(--gold); text-decoration: none; }
+.footer-hebrew { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: rgba(184,149,63,0.35); margin-bottom: 10px; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scrollPulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Nishmas Mishna</a>
+  <ul class="nav-links">
+    <li><a href="#zechus">Zechus</a></li>
+    <li><a href="#plans">Plans</a></li>
+    <li><a href="#custom">Custom</a></li>
+    <li><a href="#sefer">Sefer Request</a></li>
+    <li><a href="#signup" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-watermark" aria-hidden="true">נשמה</div>
+  <div class="hero-eyebrow"><span class="hero-dot"></span>Daily Torah Learning in Your Merit<span class="hero-dot"></span></div>
+  <h1>A Mishnah learned<br>for you, <em>every single day.</em></h1>
+  <p class="hero-sub">The greatest zechus — l'ilui nishmas, for refuah, shidduch, parnossah, and every yeshuah. Consistent, personal, and meaningful.</p>
+  <div class="hero-price-tag">
+    <span class="from">From just</span><span class="amount">₪30</span><span class="per">/ month &nbsp;·&nbsp; 1 shekel a day</span>
+  </div>
+  <div class="hero-cta">
+    <button class="btn-primary" onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})">See All Plans</button>
+    <button class="btn-secondary" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
+</section>
+
+<!-- WHY -->
+<section class="why-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="eyebrow">Why it matters</div>
+      <h2 class="section-title">Small. Daily. Eternal.</h2>
+      <p class="section-sub">Torah learned in someone's merit is one of the most powerful forms of zechus. Here is why this works.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-num">01</div><h3>Consistency is the key</h3><p>A single Mishnah a day is 365 Mishnayos a year. Small, daily learning compounds into something extraordinary — and eternal.</p></div>
+      <div class="why-card"><div class="why-num">02</div><h3>Torah as a tikkun</h3><p>The word "Mishna" shares its letters with "Neshama." The Aruch HaShulchan writes that this learning is a great tikkun for the soul.</p></div>
+      <div class="why-card"><div class="why-num">03</div><h3>Personal &amp; dedicated</h3><p>This is not automated software. Every session is learned with your name — or the name of your loved one — specifically in mind. Real kavana, every day.</p></div>
+      <div class="why-card"><div class="why-num">04</div><h3>Direct access</h3><p>Questions, special requests, or updates — reach me directly on WhatsApp or email. Personal service, always.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ZECHUS -->
+<section class="zechus-section" id="zechus">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="eyebrow" style="color:var(--gold-light);">The merit of Torah</div>
+      <h2 class="section-title light">Have Torah learned in your merit</h2>
+      <p class="section-sub light">Torah learned in the zechus of someone opens heavenly channels that nothing else can. Choose your intention:</p>
+    </div>
+    <div class="zechus-grid">
+      <div class="zechus-card"><div class="zechus-glyph">🕯️</div><h4>L'ilui Nishmas</h4><p>An eternal zechus for a departed soul. Mishnayos are among the greatest gifts you can give a neshamah in the next world.</p></div>
+      <div class="zechus-card"><div class="zechus-glyph">💊</div><h4>Refuah Shleimah</h4><p>Torah learned in someone's merit is among the most powerful sources of heavenly protection, healing, and renewed strength.</p></div>
+      <div class="zechus-card"><div class="zechus-glyph">💍</div><h4>Shidduch</h4><p>Daily learning dedicated to finding one's zivug is a beloved and proven segulah passed down through the generations.</p></div>
+      <div class="zechus-card"><div class="zechus-glyph">🌿</div><h4>Parnossah &amp; Hatzlocha</h4><p>Torah is the source of all blessing. Learning in your merit opens doors of success and livelihood in ways nothing else can.</p></div>
+      <div class="zechus-card"><div class="zechus-glyph">👶</div><h4>Zera Shel Kayama</h4><p>For those davening for children — Torah learning is a powerful zechus and tefillah combined into one daily act of dedication.</p></div>
+      <div class="zechus-card"><div class="zechus-glyph">✨</div><h4>Any Yeshuah</h4><p>Whatever you need — Torah learned in your name is always meaningful. Specify your intention in the form below.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section class="quotes-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="eyebrow">What the sources say</div>
+      <h2 class="section-title">Rooted in Torah tradition</h2>
+    </div>
+    <div class="quotes-grid">
+      <div class="quote-card">
+        <span class="quote-mark">"</span>
+        <blockquote class="quote-hebrew">ונהגו ללמוד משניות הן כל שנים עשר חודש, הן ביום היארצייט, אחר נשמתם. והוא תיקון גדול לנשמה, כי "משנה" אותיות "נשמה"</blockquote>
+        <cite>Aruch HaShulchan — Y"D 376:13</cite>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark">"</span>
+        <blockquote>Mishnayos help to achieve a kaparah — both for the one learning them, and for the one that they are being learned for.</blockquote>
+        <cite>Chidah &amp; Rav Tzadok HaKohen</cite>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark">"</span>
+        <blockquote>Make your Torah study fixed, and say little but do much.</blockquote>
+        <cite>Pirkei Avot — 1:15</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="plans">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="eyebrow">Choose your track</div>
+      <h2 class="section-title">Fixed Learning Plans</h2>
+      <p class="section-sub">All plans include dedicated daily learning in your merit, with your kavana and Hebrew name in mind. Choose a duration, then click Join to go straight to PayPal. Payment also accepted via Israeli or South African bank transfer — contact me directly.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- Plan 1 -->
+      <div class="plan-card">
+        <h3 class="plan-name">Mishnah a Day</h3>
+        <p class="plan-desc">The foundation. One Mishnah learned in your merit, every single day.</p>
+        <div class="plan-price"><span class="plan-currency">₪</span><span class="plan-amount">30</span></div>
+        <p class="plan-period">per month &nbsp;·&nbsp; 1 shekel a day</p>
+        <p class="plan-includes">Includes</p>
+        <ul class="plan-features">
+          <li>One Mishnah learned daily in your merit</li>
+          <li>Your Hebrew name &amp; kavana in mind</li>
+          <li>WhatsApp access for questions</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <div class="plan-duration-wrap">
+          <div class="plan-duration-label">Duration</div>
+          <select class="plan-duration-select" id="dur-1">
+            <option value="https://www.paypal.com/ncp/payment/M82E8XMWHHJN8">1 month (one-off)</option>
+            <option value="https://www.paypal.com/ncp/payment/M82E8XMWHHJN8">3 months — contact me to arrange</option>
+            <option value="https://www.paypal.com/ncp/payment/M82E8XMWHHJN8">6 months — contact me to arrange</option>
+            <option value="https://www.paypal.com/ncp/payment/M82E8XMWHHJN8">12 months — contact me to arrange</option>
+            <option value="https://www.paypal.com/ncp/payment/M82E8XMWHHJN8">Ongoing recurring monthly</option>
+          </select>
+          <p class="plan-duration-note">Multi-month &amp; recurring arranged personally after payment.</p>
+        </div>
+        <button class="plan-btn btn-dark" onclick="goPaypal('dur-1')">Join — ₪30 / month</button>
+      </div>
+
+      <!-- Plan 2 -->
+      <div class="plan-card featured">
+        <div class="plan-badge">Most Popular</div>
+        <h3 class="plan-name">Mishnah + Tehillim</h3>
+        <p class="plan-desc">A Mishnah and a kapitel of Tehillim daily. Powerful zechus for body and soul.</p>
+        <div class="plan-price"><span class="plan-currency">₪</span><span class="plan-amount">45</span></div>
+        <p class="plan-period">per month &nbsp;·&nbsp; 1.5 shekel a day</p>
+        <p class="plan-includes">Everything in Plan 1, plus</p>
+        <ul class="plan-features">
+          <li>One kapitel Tehillim daily in your merit</li>
+          <li>Ideal for shidduch, refuah &amp; parnossah</li>
+          <li>Priority WhatsApp access</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <div class="plan-duration-wrap">
+          <div class="plan-duration-label">Duration</div>
+          <select class="plan-duration-select" id="dur-2">
+            <option value="https://www.paypal.com/ncp/payment/39HMA8FUJT5J4">1 month (one-off)</option>
+            <option value="https://www.paypal.com/ncp/payment/39HMA8FUJT5J4">3 months — contact me to arrange</option>
+            <option value="https://www.paypal.com/ncp/payment/39HMA8FUJT5J4">6 months — contact me to arrange</option>
+            <option value="https://www.paypal.com/ncp/payment/39HMA8FUJT5J4">12 months — contact me to arrange</option>
+            <option value="https://www.paypal.com/ncp/payment/39HMA8FUJT5J4">Ongoing recurring monthly</option>
+          </select>
+          <p class="plan-duration-note">Multi-month &amp; recurring arranged personally after payment.</p>
+        </div>
+        <button class="plan-btn btn-featured" onclick="goPaypal('dur-2')">Join — ₪45 / month</button>
+      </div>
+
+      <!-- Plan 3 -->
+      <div class="plan-card">
+        <h3 class="plan-name">Mishnah + Tehillim + Tomer Devorah</h3>
+        <p class="plan-desc">A complete daily seder including a perek of the holy Tomer Devorah.</p>
+        <div class="plan-price"><span class="plan-currency">₪</span><span class="plan-amount">50</span></div>
+        <p class="plan-period">per month</p>
+        <p class="plan-includes">Everything in Plans 1 &amp; 2, plus</p>
+        <ul class="plan-features">
+          <li>One perek Tomer Devorah daily</li>
+          <li>Exceptional zechus for yeshuos in all areas</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <div class="plan-duration-wrap">
+          <div class="plan-duration-label">Duration</div>
+          <select class="plan-duration-select" id="dur-3">
+            <option value="https://www.paypal.com/ncp/payment/VHMFMKAJ3WJWW">1 month (one-off)</option>
+            <option value="https://www.paypal.com/ncp/payment/VHMFMKAJ3WJWW">3 months — contact me to arrange</option>
+            <option value="https://www.paypal.com/ncp/payment/VHMFMKAJ3WJWW">6 months — contact me to arrange</option>
+            <option value="https://www.paypal.com/ncp/payment/VHMFMKAJ3WJWW">12 months — contact me to arrange</option>
+            <option value="https://www.paypal.com/ncp/payment/VHMFMKAJ3WJWW">Ongoing recurring monthly</option>
+          </select>
+          <p class="plan-duration-note">Multi-month &amp; recurring arranged personally after payment.</p>
+        </div>
+        <button class="plan-btn btn-dark" onclick="goPaypal('dur-3')">Join — ₪50 / month</button>
+      </div>
+
+      <!-- Plan 4 -->
+      <div class="plan-card">
+        <div class="plan-badge green">Most Comprehensive</div>
+        <h3 class="plan-name">Full Seder — with Daf Gemara</h3>
+        <p class="plan-desc">The most complete package, anchored by a daf of Gemara learned daily in your merit.</p>
+        <div class="plan-price"><span class="plan-currency">₪</span><span class="plan-amount">100</span></div>
+        <p class="plan-period">per month</p>
+        <p class="plan-includes">Everything in all plans, plus</p>
+        <ul class="plan-features">
+          <li>One daf Gemara daily (+₪50 vs Plan 3)</li>
+          <li>The greatest zechus l'ilui nishmas or l'refuah</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <div class="plan-duration-wrap">
+          <div class="plan-duration-label">Duration</div>
+          <select class="plan-duration-select" id="dur-4">
+            <option value="https://paypal.me/nishmasmishna/100ILS">1 month (one-off)</option>
+            <option value="https://paypal.me/nishmasmishna/100ILS">3 months — contact me to arrange</option>
+            <option value="https://paypal.me/nishmasmishna/100ILS">6 months — contact me to arrange</option>
+            <option value="https://paypal.me/nishmasmishna/100ILS">12 months — contact me to arrange</option>
+            <option value="https://paypal.me/nishmasmishna/100ILS">Ongoing recurring monthly</option>
+          </select>
+          <p class="plan-duration-note">Multi-month &amp; recurring arranged personally after payment.</p>
+        </div>
+        <button class="plan-btn btn-dark" onclick="goPaypal('dur-4')">Join — ₪100 / month</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM BUILDER -->
+<section class="custom-section" id="custom">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="eyebrow">Build your own</div>
+      <h2 class="section-title">Custom Learning Track</h2>
+      <p class="section-sub">Choose exactly which components you would like learned in your merit each day. The price calculates automatically and clicking Confirm takes you straight to PayPal.</p>
+    </div>
+    <div class="builder-card">
+      <p class="builder-subtitle">Select one or more components. Choose a duration. Click Confirm — you will be taken directly to PayPal to complete payment.</p>
+      <div class="builder-options">
+        <div class="builder-option" data-price="30" data-name="Mishnah" onclick="toggleOption(this)">
+          <div class="builder-check">✓</div>
+          <div class="builder-option-icon">📖</div>
+          <div class="builder-option-name">Mishnah</div>
+          <div class="builder-option-price">+₪30 / month</div>
+        </div>
+        <div class="builder-option" data-price="15" data-name="Kapitel Tehillim" onclick="toggleOption(this)">
+          <div class="builder-check">✓</div>
+          <div class="builder-option-icon">📜</div>
+          <div class="builder-option-name">Kapitel Tehillim</div>
+          <div class="builder-option-price">+₪15 / month</div>
+        </div>
+        <div class="builder-option" data-price="5" data-name="Perek Tomer Devorah" onclick="toggleOption(this)">
+          <div class="builder-check">✓</div>
+          <div class="builder-option-icon">🌿</div>
+          <div class="builder-option-name">Perek Tomer Devorah</div>
+          <div class="builder-option-price">+₪5 / month</div>
+        </div>
+        <div class="builder-option" data-price="50" data-name="Daf Gemara" onclick="toggleOption(this)">
+          <div class="builder-check">✓</div>
+          <div class="builder-option-icon">📚</div>
+          <div class="builder-option-name">Daf Gemara</div>
+          <div class="builder-option-price">+₪50 / month</div>
+        </div>
+      </div>
+      <div class="builder-duration-row">
+        <label for="builder-duration">Duration:</label>
+        <select class="builder-duration-select" id="builder-duration">
+          <option>1 month (one-off)</option>
+          <option>3 months</option>
+          <option>6 months</option>
+          <option>12 months</option>
+          <option>Ongoing (recurring monthly)</option>
+        </select>
+      </div>
+      <div class="builder-total">
+        <div>
+          <div class="builder-total-label">Your monthly total</div>
+          <div class="builder-total-price" id="builder-price"><span class="builder-none">Select components above</span></div>
+          <div class="builder-total-per" id="builder-per"></div>
+        </div>
+        <button class="btn-primary" id="builder-btn" onclick="proceedCustom()" style="display:none;">Confirm &amp; Pay →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEFER REQUEST -->
+<section class="sefer-section" id="sefer">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="eyebrow">Something specific in mind?</div>
+      <h2 class="section-title">Request a Specific Sefer</h2>
+      <p class="section-sub">Want a particular sefer learned in your merit that is not covered by the standard plans? Send a request — pricing is discussed personally.</p>
+    </div>
+    <div class="sefer-card">
+      <div class="sefer-left">
+        <h3>Any sefer, learned in your merit</h3>
+        <p>If you have a specific sefer in mind — a particular masechta, a section of Chumash with Rashi, or any other sefer — reach out and we will find the right arrangement together.</p>
+        <p>Pricing is based on the length and complexity of the learning involved, and is always agreed upon before we begin.</p>
+        <div class="sefer-examples">
+          <span class="sefer-tag">Specific Masechta</span>
+          <span class="sefer-tag">Chumash with Rashi</span>
+          <span class="sefer-tag">Mesilat Yesharim</span>
+          <span class="sefer-tag">Shulchan Aruch</span>
+          <span class="sefer-tag">Tanya</span>
+          <span class="sefer-tag">Any other sefer</span>
+        </div>
+      </div>
+      <form class="sefer-form" id="sefer-form" action="https://formspree.io/f/mpqooldn" method="POST">
+        <input type="hidden" name="form_type" value="sefer_request">
+        <input class="sefer-input" type="text" name="name" placeholder="Your name" required>
+        <input class="sefer-input" type="email" name="email" placeholder="Email address" required>
+        <input class="sefer-input" type="text" name="sefer_requested" placeholder="Which sefer would you like learned?" required>
+        <input class="sefer-input" type="text" name="hebrew_name" placeholder="Hebrew name/s to have in mind (optional)">
+        <textarea class="sefer-input" name="message" placeholder="Any additional details or context" rows="3" style="resize:vertical;"></textarea>
+        <p class="sefer-note">This is an enquiry — no payment required at this stage. I will be in touch to discuss pricing and details.</p>
+        <button type="submit" class="btn-primary" style="width:100%; padding:14px;">Send Request →</button>
+        <div id="sefer-success" style="display:none; margin-top:12px; padding:16px; border:1px solid rgba(184,149,63,0.3); border-radius:2px; text-align:center; color:var(--gold-light); font-size:14px;">
+          ✦ Received — I will be in touch shortly. B'hatzlacha!
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- GENERAL ENQUIRY -->
+<section class="signup-section" id="signup">
+  <div class="signup-inner">
+    <div class="section-header">
+      <div class="eyebrow">Get started</div>
+      <h2 class="section-title">General Enquiry</h2>
+      <p class="section-sub">Not sure which plan is right for you, or have a question? Fill in below and I will be in touch within 24 hours.</p>
+    </div>
+    <form class="signup-form" id="signup-form" action="https://formspree.io/f/mpqooldn" method="POST">
+      <input type="hidden" name="form_type" value="general_enquiry">
+      <div class="field-row">
+        <input type="text" name="first_name" placeholder="First name" class="form-input" required>
+        <input type="text" name="last_name" placeholder="Last name" class="form-input">
+      </div>
+      <input type="email" name="email" placeholder="Email address" class="form-input" required>
+      <input type="tel" name="phone" placeholder="WhatsApp number (optional)" class="form-input">
+      <select name="plan" class="form-input form-select">
+        <option value="" disabled selected>Which plan interests you? (optional)</option>
+        <option value="mishna_30">Mishnah a Day — ₪30 / month</option>
+        <option value="mishna_tehillim_45">Mishnah + Tehillim — ₪45 / month</option>
+        <option value="mishna_tehillim_tomer_50">Mishnah + Tehillim + Tomer Devorah — ₪50 / month</option>
+        <option value="full_daf_100">Full Seder with Daf Gemara — ₪100 / month</option>
+        <option value="custom">Custom Track</option>
+        <option value="sefer_request">Specific Sefer Request</option>
+        <option value="question">Just a question</option>
+      </select>
+      <div class="form-divider">
+        <div class="form-divider-line"></div>
+        <span class="form-divider-label">Learning Dedication</span>
+        <div class="form-divider-line"></div>
+      </div>
+      <input type="text" name="hebrew_name" placeholder="Hebrew name/s to have in mind — e.g. Rivka bas Leah" class="form-input">
+      <select name="kavana" class="form-input form-select">
+        <option value="" disabled selected>Kavana — what is this learning for?</option>
+        <option value="ilui_nishmas">L'ilui Nishmas — in memory of a loved one</option>
+        <option value="refuah">Refuah Shleimah — for a recovery</option>
+        <option value="shidduch">Shidduch — finding one's zivug</option>
+        <option value="parnossah">Parnossah — livelihood &amp; success</option>
+        <option value="hatzlocha">Hatzlocha — general success &amp; blessing</option>
+        <option value="zera">Zera Shel Kayama — children</option>
+        <option value="other">Other — please specify below</option>
+      </select>
+      <textarea name="message" placeholder="Your question or any additional details (optional)" class="form-input" rows="3" style="resize:vertical;"></textarea>
+      <button type="submit" class="submit-btn">Send →</button>
+      <p class="form-note">No spam. Ever. Just Torah.</p>
+    </form>
+    <div class="success-msg" id="signup-success">✦ Thank you — I will be in touch within 24 hours. B'hatzlacha!</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="eyebrow" style="color:var(--gold-light);">Reach out directly</div>
+      <h2 class="section-title light">Prefer to contact me directly?</h2>
+      <p class="section-sub light">Message on WhatsApp or email for any questions, custom arrangements, or anything else.</p>
+    </div>
+    <div class="contact-grid">
+      <a href="https://wa.me/972505197016?text=Hi!%20I%20am%20interested%20in%20daily%20Torah%20learning%20in%20my%20merit." class="contact-item">
+        <div class="contact-icon wa">💬</div>
+        <div><div class="contact-text-label">WhatsApp</div><div class="contact-text-value">+972 50 519 7016</div></div>
+      </a>
+      <a href="mailto:nishmasmishna@gmail.com" class="contact-item">
+        <div class="contact-icon email">✉️</div>
+        <div><div class="contact-text-label">Email</div><div class="contact-text-value">nishmasmishna@gmail.com</div></div>
+      </a>
+      <div class="contact-item">
+        <div class="contact-icon bank">🏦</div>
+        <div><div class="contact-text-label">Bank Transfer</div><div class="contact-text-value">Israeli &amp; South African accounts available</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-hebrew">נשמת כל חי תברך את שמך</p>
+  <p>© 2025 Nishmas Mishna &nbsp;·&nbsp; <a href="mailto:nishmasmishna@gmail.com">nishmasmishna@gmail.com</a> &nbsp;·&nbsp; Made with care. לעילוי נשמת</p>
+</footer>
+
+<script>
+// Plan buttons — go straight to PayPal using the selected duration's link
+function goPaypal(durSelectId) {
+  var sel = document.getElementById(durSelectId);
+  var link = sel ? sel.value : '#';
+  window.open(link, '_blank');
+}
+
+// Custom builder
+function toggleOption(el) {
+  el.classList.toggle('selected');
+  updateBuilder();
+}
+function updateBuilder() {
+  var selected = document.querySelectorAll('.builder-option.selected');
+  var priceEl = document.getElementById('builder-price');
+  var perEl = document.getElementById('builder-per');
+  var btn = document.getElementById('builder-btn');
+  if (selected.length === 0) {
+    priceEl.innerHTML = '<span class="builder-none">Select components above</span>';
+    perEl.textContent = '';
+    btn.style.display = 'none';
+    return;
+  }
+  var total = 0;
+  selected.forEach(function(el) { total += parseInt(el.dataset.price); });
+  priceEl.textContent = '₪' + total;
+  perEl.textContent = 'per month · approx ₪' + (total / 30).toFixed(1) + ' per day';
+  btn.style.display = 'inline-block';
+}
+function proceedCustom() {
+  var selected = document.querySelectorAll('.builder-option.selected');
+  if (selected.length === 0) return;
+  var total = 0;
+  selected.forEach(function(el) { total += parseInt(el.dataset.price); });
+  window.open('https://paypal.me/nishmasmishna/' + total + 'ILS', '_blank');
+}
+
+// Sefer form
+var seferForm = document.getElementById('sefer-form');
+if (seferForm) {
+  seferForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn = seferForm.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    try {
+      var res = await fetch(seferForm.action, { method: 'POST', body: new FormData(seferForm), headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        seferForm.querySelectorAll('input,textarea,button').forEach(function(el) { el.style.display = 'none'; });
+        document.getElementById('sefer-success').style.display = 'block';
+      } else { btn.textContent = 'Error — please try again.'; btn.disabled = false; }
+    } catch(err) { btn.textContent = 'Network error — please try again.'; btn.disabled = false; }
+  });
+}
+
+// General enquiry form
+var signupForm = document.getElementById('signup-form');
+if (signupForm) {
+  signupForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn = signupForm.querySelector('.submit-btn');
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    try {
+      var res = await fetch(signupForm.action, { method: 'POST', body: new FormData(signupForm), headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        signupForm.style.display = 'none';
+        document.getElementById('signup-success').style.display = 'block';
+      } else { btn.textContent = 'Error — please try again.'; btn.disabled = false; }
+    } catch(err) { btn.textContent = 'Network error — please try again.'; btn.disabled = false; }
+  });
+}
+</script>
+
+</body>
+</html>
