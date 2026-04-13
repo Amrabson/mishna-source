@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nishmas Mishna — Daily Torah Learning in Your Merit</title>
+<meta name="description" content="Have a Mishnah, Tehillim or Gemara learned daily in your merit. A powerful zechus for l'ilui nishmas, refuah, shidduch, parnossah and more. From ₪30/month.">
+<meta name="theme-color" content="#13100A">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -254,10 +258,10 @@ footer a { color: var(--gold); text-decoration: none; }
     <p class="pp-subtitle">Please fill in the details for your learning dedication before proceeding to payment. This takes 30 seconds and ensures every session is learned with the right kavana.</p>
     <div class="pp-form">
       <div class="pp-divider"><div class="pp-divider-line"></div><span class="pp-divider-label">Your details</span><div class="pp-divider-line"></div></div>
-      <input class="pp-input" type="text" id="pp-name" placeholder="Your name (so I can confirm with you)" required>
-      <input class="pp-input" type="email" id="pp-email" placeholder="Email address (for confirmation)">
+      <input class="pp-input" type="text" id="pp-name" placeholder="Your name (so I can confirm with you)" autocomplete="name" required>
+      <input class="pp-input" type="email" id="pp-email" placeholder="Email address (for confirmation)" autocomplete="email">
       <div class="pp-divider"><div class="pp-divider-line"></div><span class="pp-divider-label">Learning dedication</span><div class="pp-divider-line"></div></div>
-      <input class="pp-input" type="text" id="pp-hebrew-name" placeholder="Hebrew name/s to have in mind — e.g. Rivka bas Leah">
+      <input class="pp-input" type="text" id="pp-hebrew-name" spellcheck="false" placeholder="Hebrew name/s to have in mind — e.g. Rivka bas Leah">
       <select class="pp-input pp-select" id="pp-kavana">
         <option value="" disabled selected>Kavana — what is this learning for?</option>
         <option>L'ilui Nishmas — in memory of a loved one</option>
@@ -652,10 +656,10 @@ footer a { color: var(--gold); text-decoration: none; }
       </div>
       <form class="sefer-form" id="sefer-form" action="https://formspree.io/f/mpqooldn" method="POST">
         <input type="hidden" name="form_type" value="sefer_request">
-        <input class="sefer-input" type="text" name="name" placeholder="Your name" required>
-        <input class="sefer-input" type="email" name="email" placeholder="Email address" required>
+        <input class="sefer-input" type="text" name="name" placeholder="Your name" autocomplete="name" required>
+        <input class="sefer-input" type="email" name="email" placeholder="Email address" autocomplete="email" required>
         <input class="sefer-input" type="text" name="sefer_requested" placeholder="Which sefer would you like learned?" required>
-        <input class="sefer-input" type="text" name="hebrew_name" placeholder="Hebrew name/s to have in mind (optional)">
+        <input class="sefer-input" type="text" name="hebrew_name" spellcheck="false" placeholder="Hebrew name/s to have in mind (optional)">
         <textarea class="sefer-input" name="message" placeholder="Any additional details or context" rows="3" style="resize:vertical;"></textarea>
         <p class="sefer-note">This is an enquiry — no payment required at this stage. I will be in touch to discuss pricing and details.</p>
         <button type="submit" class="btn-primary" style="width:100%; padding:14px; font-size:13px;">Send Request →</button>
@@ -688,11 +692,11 @@ footer a { color: var(--gold); text-decoration: none; }
     <form class="signup-form" id="signup-form" action="https://formspree.io/f/mpqooldn" method="POST">
       <input type="hidden" name="form_type" value="general_enquiry">
       <div class="field-row">
-        <input type="text" name="first_name" placeholder="First name" class="form-input" required>
-        <input type="text" name="last_name" placeholder="Last name" class="form-input">
+        <input type="text" name="first_name" placeholder="First name" class="form-input" autocomplete="given-name" required>
+        <input type="text" name="last_name" placeholder="Last name" class="form-input" autocomplete="family-name">
       </div>
-      <input type="email" name="email" placeholder="Email address" class="form-input" required>
-      <input type="tel" name="phone" placeholder="WhatsApp number (optional)" class="form-input">
+      <input type="email" name="email" placeholder="Email address" class="form-input" autocomplete="email" required>
+      <input type="tel" name="phone" placeholder="WhatsApp number (optional)" class="form-input" autocomplete="tel">
       <select name="plan" class="form-input form-select">
         <option value="" disabled selected>Which plan interests you? (optional)</option>
         <option>Mishnah a Day — ₪30 / month</option>
@@ -708,7 +712,7 @@ footer a { color: var(--gold); text-decoration: none; }
         <span class="form-divider-label">Learning Dedication</span>
         <div class="form-divider-line"></div>
       </div>
-      <input type="text" name="hebrew_name" placeholder="Hebrew name/s to have in mind — e.g. Rivka bas Leah" class="form-input">
+      <input type="text" name="hebrew_name" spellcheck="false" placeholder="Hebrew name/s to have in mind — e.g. Rivka bas Leah" class="form-input">
       <select name="kavana" class="form-input form-select">
         <option value="" disabled selected>Kavana — what is this learning for?</option>
         <option>L'ilui Nishmas — in memory of a loved one</option>
@@ -736,13 +740,13 @@ footer a { color: var(--gold); text-decoration: none; }
       <p class="section-sub light">Message on WhatsApp or email for any questions, custom arrangements, or anything else.</p>
     </div>
     <div class="contact-grid">
-      <a href="https://wa.me/972505197016?text=Hi!%20I%20am%20interested%20in%20daily%20Torah%20learning%20in%20my%20merit." class="contact-item">
+      <a href="https://wa.me/972505197016" rel="noopener noreferrer"?text=Hi!%20I%20am%20interested%20in%20daily%20Torah%20learning%20in%20my%20merit." class="contact-item">
         <div class="contact-icon wa">💬</div>
         <div><div class="contact-text-label">WhatsApp</div><div class="contact-text-value">+972 50 519 7016</div></div>
       </a>
       <a href="mailto:nishmasmishna@gmail.com" class="contact-item">
         <div class="contact-icon email">✉️</div>
-        <div><div class="contact-text-label">Email</div><div class="contact-text-value"><span class="__cf_email__" data-cfemail="412f2832292c20322c2832292f2001262c20282d6f222e2c">[email&#160;protected]</span></div></div>
+        <div><div class="contact-text-label">Email</div><div class="contact-text-value">Send an email</div></div>
       </a>
       <div class="contact-item">
         <div class="contact-icon bank">🏦</div>
@@ -755,7 +759,7 @@ footer a { color: var(--gold); text-decoration: none; }
 <!-- FOOTER -->
 <footer>
   <p class="footer-hebrew">נשמת כל חי תברך את שמך</p>
-  <p>© 2025 Nishmas Mishna &nbsp;·&nbsp; <a href="mailto:nishmasmishna@gmail.com">nishmasmishna@gmail.com</a> &nbsp;·&nbsp; Made with care. לעילוי נשמת</p>
+  <p>© 2025 Nishmas Mishna &nbsp;·&nbsp; <a href="mailto:nishmasmishna@gmail.com">Get in touch</a> &nbsp;·&nbsp; Made with care. לעילוי נשמת</p>
 </footer>
 
 <!-- SINGLE PAYPAL SDK — loaded once, at the bottom -->
@@ -805,7 +809,7 @@ function submitPP() {
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
   }).catch(function() {});
   closePP();
-  window.open(_ppLink, '_blank');
+  window.open(_ppLink, '_blank', 'noopener,noreferrer');
 }
 
 // ─── PAYPAL PLAN IDS ───
@@ -940,8 +944,8 @@ if (signupForm) {
       if (res.ok) {
         signupForm.style.display = 'none';
         document.getElementById('signup-success').style.display = 'block';
-      } else { btn.textContent = 'Error \u2014 please try again.'; btn.disabled = false; }
-    } catch(e) { btn.textContent = 'Network error \u2014 please try again.'; btn.disabled = false; }
+      } else { btn.textContent = 'Error — please try again.'; btn.disabled = false; }
+    } catch(e) { btn.textContent = 'Network error — please try again.'; btn.disabled = false; }
   });
 }
 </script>
