@@ -10,10 +10,13 @@
 <meta property="og:title" content="Nishmas Mishna — Daily Torah Learning in Your Merit">
 <meta property="og:description" content="Have a Mishnah, Tehillim or Gemara learned daily in your merit. A powerful zechus for l'ilui nishmas, refuah, shidduch, parnossah and more. From ₪30/month.">
 <meta property="og:url" content="https://nishmasmishna.org/">
+<meta property="og:image" content="https://nishmasmishna.org/social-preview.png">
+<meta property="og:image:alt" content="Nishmas Mishna — Partner in Torah Learning">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nishmas Mishna — Daily Torah Learning in Your Merit">
 <meta name="twitter:description" content="Have a Mishnah, Tehillim or Gemara learned daily in your merit. A powerful zechus for l'ilui nishmas, refuah, shidduch, parnossah and more. From ₪30/month.">
+<meta name="twitter:image" content="https://nishmasmishna.org/social-preview.png">
 <link rel="canonical" href="https://nishmasmishna.org/">
 <link rel="alternate" href="https://nishmasmishna.org/?lang=en" hreflang="en">
 <link rel="alternate" href="https://nishmasmishna.org/?lang=he" hreflang="he">
@@ -240,6 +243,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 40px;
 .contact-icon.bank { background: rgba(184,149,63,0.15); border: 1px solid rgba(184,149,63,0.25); }
 .contact-text-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(253,250,243,0.3); margin-bottom: 4px; }
 .contact-text-value { font-size: 14px; color: var(--cream); font-weight: 400; }
+.phone-ltr { direction: ltr; unicode-bidi: plaintext; display: inline-block; }
 
 
 
@@ -499,7 +503,7 @@ footer a { color: var(--gold); text-decoration: none; }
       <div class="quote-card">
         <span class="quote-mark">"</span>
         <blockquote class="quote-hebrew" lang="he">ונהגו ללמוד משניות הן כל שנים עשר חודש, הן ביום היארצייט, אחר נשמתם. והוא תיקון גדול לנשמה, כי "משנה" אותיות "נשמה"</blockquote>
-        <cite>Aruch HaShulchan — Y"D 376:13</cite>
+        <cite data-i18n="quote_1_src">Aruch HaShulchan — Y"D 376:13</cite>
       </div>
       <div class="quote-card">
         <span class="quote-mark">"</span>
@@ -526,7 +530,7 @@ footer a { color: var(--gold); text-decoration: none; }
     <div class="proof-strip" aria-label="Trust highlights">
       <div class="proof-item"><div class="proof-num">365+</div><div class="proof-label" data-i18n="proof_1">Daily sessions each year</div></div>
       <div class="proof-item"><div class="proof-num">24h</div><div class="proof-label" data-i18n="proof_2">Typical response time</div></div>
-      <div class="proof-item"><div class="proof-num">Direct</div><div class="proof-label" data-i18n="proof_3">Personal WhatsApp support</div></div>
+      <div class="proof-item"><div class="proof-num" data-i18n="proof_3_num">Direct</div><div class="proof-label" data-i18n="proof_3">Personal WhatsApp support</div></div>
     </div>
 
     <!-- BILLING TOGGLE -->
@@ -805,6 +809,12 @@ footer a { color: var(--gold); text-decoration: none; }
       </div>
       <form class="sefer-form" id="sefer-form" action="https://formspree.io/f/mpqooldn" method="POST">
         <input type="hidden" name="form_type" value="sefer_request">
+        <input type="hidden" name="utm_source" id="sefer-utm-source">
+        <input type="hidden" name="utm_medium" id="sefer-utm-medium">
+        <input type="hidden" name="utm_campaign" id="sefer-utm-campaign">
+        <input type="hidden" name="utm_term" id="sefer-utm-term">
+        <input type="hidden" name="utm_content" id="sefer-utm-content">
+        <input type="hidden" name="landing_page" id="sefer-landing-page">
         <input class="sefer-input" type="text" name="name" placeholder="Your name" autocomplete="name" data-i18n-ph="ph_name" required>
         <input class="sefer-input" type="email" id="sefer-email" name="email" placeholder="Email address" autocomplete="email" inputmode="email" data-i18n-ph="ph_email" required>
         <input class="sefer-input" type="text" name="sefer_requested" placeholder="Which sefer would you like learned?" data-i18n-ph="ph_sefer" required>
@@ -840,6 +850,12 @@ footer a { color: var(--gold); text-decoration: none; }
     </div>
     <form class="signup-form" id="signup-form" action="https://formspree.io/f/mpqooldn" method="POST">
       <input type="hidden" name="form_type" value="general_enquiry">
+      <input type="hidden" name="utm_source" id="signup-utm-source">
+      <input type="hidden" name="utm_medium" id="signup-utm-medium">
+      <input type="hidden" name="utm_campaign" id="signup-utm-campaign">
+      <input type="hidden" name="utm_term" id="signup-utm-term">
+      <input type="hidden" name="utm_content" id="signup-utm-content">
+      <input type="hidden" name="landing_page" id="signup-landing-page">
       <div class="field-row">
         <input type="text" name="first_name" placeholder="First name" class="form-input" autocomplete="given-name" data-i18n-ph="ph_first" required>
         <input type="text" name="last_name" placeholder="Last name" class="form-input" autocomplete="family-name" data-i18n-ph="ph_last">
@@ -891,7 +907,7 @@ footer a { color: var(--gold); text-decoration: none; }
     <div class="contact-grid">
       <a href="https://wa.me/972505197016?text=Hi!%20I%20am%20interested%20in%20daily%20Torah%20learning%20in%20my%20merit." rel="noopener noreferrer" class="contact-item">
         <div class="contact-icon wa">💬</div>
-        <div><div class="contact-text-label" data-i18n="contact_wa">WhatsApp</div><div class="contact-text-value">+972 50 519 7016</div></div>
+        <div><div class="contact-text-label" data-i18n="contact_wa">WhatsApp</div><div class="contact-text-value phone-ltr">+972 50 519 7016</div></div>
       </a>
       <a href="mailto:nishmasmishna@gmail.com" class="contact-item">
         <div class="contact-icon email">✉️</div>
@@ -922,6 +938,26 @@ footer a { color: var(--gold); text-decoration: none; }
 var _ppLink = '';
 var _ppPlan = '';
 var pendingSubscription = null;
+
+function getAttributionData() {
+  var params = new URLSearchParams(window.location.search || '');
+  return {
+    utm_source: params.get('utm_source') || '',
+    utm_medium: params.get('utm_medium') || '',
+    utm_campaign: params.get('utm_campaign') || '',
+    utm_term: params.get('utm_term') || '',
+    utm_content: params.get('utm_content') || '',
+    landing_page: window.location.href
+  };
+}
+
+function fillAttributionHiddenFields(prefix) {
+  var data = getAttributionData();
+  Object.keys(data).forEach(function(key) {
+    var el = document.getElementById(prefix + '-' + key.replace('_', '-'));
+    if (el) el.value = data[key];
+  });
+}
 
 function trackEvent(eventName, payload) {
   var data = payload || {};
@@ -976,7 +1012,8 @@ function submitSubDetails() {
       plan: getPlanLabel(pendingSubscription.containerId),
       subscription_id: pendingSubscription.subscriptionId,
       hebrew_name: hName,
-      kavana: kav
+      kavana: kav,
+      attribution: getAttributionData()
     }),
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
   }).catch(function() {});
@@ -1015,7 +1052,8 @@ function submitPP() {
       email: document.getElementById('pp-email').value,
       hebrew_name: document.getElementById('pp-hebrew-name').value,
       kavana: document.getElementById('pp-kavana').value,
-      notes: document.getElementById('pp-notes').value
+      notes: document.getElementById('pp-notes').value,
+      attribution: getAttributionData()
     }),
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
   }).catch(function() {});
@@ -1085,11 +1123,11 @@ function renderPanelButtons(panelKey) {
 }
 
 // ─── BILLING TOGGLE ───
-var billingNotes = {
-  once:    'Single payment for one month of learning.',
-  monthly: 'Billed automatically each month via PayPal. Cancel anytime.',
-  yearly:  'Billed monthly for 12 months, then ends. A full year of learning.'
-};
+function getBillingNote(mode) {
+  var t = TRANSLATIONS[currentLang] || TRANSLATIONS.en;
+  var key = 'billing_note_' + mode;
+  return t[key] || TRANSLATIONS.en[key] || '';
+}
 function setBilling(mode) {
   ['once','monthly','yearly'].forEach(function(m) {
     document.getElementById('panel-' + m).classList.toggle('active', m === mode);
@@ -1097,7 +1135,7 @@ function setBilling(mode) {
   document.querySelectorAll('.billing-tab').forEach(function(btn, i) {
     btn.classList.toggle('active', ['once','monthly','yearly'][i] === mode);
   });
-  document.getElementById('billing-note-text').textContent = billingNotes[mode];
+  document.getElementById('billing-note-text').textContent = getBillingNote(mode);
   trackEvent('billing_mode_changed', { mode: mode });
   if (mode === 'monthly') renderPanelButtons('monthly');
   if (mode === 'yearly')  renderPanelButtons('yearly');
@@ -1364,8 +1402,10 @@ var TRANSLATIONS = {
     tag_any: 'Any other sefer',
     sefer_send: 'Send Request →',
     footer_text: '© 2025 Nishmas Mishna &nbsp;·&nbsp; <a href="mailto:nishmasmishna@gmail.com">nishmasmishna@gmail.com</a> &nbsp;·&nbsp; Made with care. לעילוי נשמת',
+    quote_1_src: 'Aruch HaShulchan — Y"D 376:13',
     proof_1: 'Daily sessions each year',
     proof_2: 'Typical response time',
+    proof_3_num: 'Direct',
     proof_3: 'Personal WhatsApp support',
     sub_detail_tag: 'Subscription confirmed',
     sub_detail_title: 'One last step',
@@ -1538,8 +1578,10 @@ var TRANSLATIONS = {
     tag_any: '\u05db\u05dc \u05e1\u05e4\u05e8 \u05d0\u05d7\u05e8',
     sefer_send: '\u05e9\u05dc\u05d7 \u05d1\u05e7\u05e9\u05d4 ←',
     footer_text: '© 2025 \u05e0\u05e9\u05de\u05ea \u05de\u05e9\u05e0\u05d4 &nbsp;·&nbsp; <a href="mailto:nishmasmishna@gmail.com">nishmasmishna@gmail.com</a> &nbsp;·&nbsp; \u05e0\u05e2\u05e9\u05d4 \u05d1\u05d0\u05d4\u05d1\u05d4. \u05dc\u05e2\u05d9\u05dc\u05d5\u05d9 \u05e0\u05e9\u05de\u05ea',
+    quote_1_src: '\u05e2\u05e8\u05d5\u05da \u05d4\u05e9\u05d5\u05dc\u05d7\u05df — \u05d9\u05d5\"\u05d3 \u05e9\u05e2\"\u05d5:\u05d9\"\u05d2',
     proof_1: '\u05e9\u05d9\u05e2\u05d5\u05e8\u05d9\u05dd \u05d9\u05d5\u05de\u05d9\u05d9\u05dd \u05db\u05dc \u05d4\u05e9\u05e0\u05d4',
     proof_2: '\u05d6\u05de\u05df \u05de\u05e2\u05e0\u05d4 \u05de\u05de\u05d5\u05e6\u05e2',
+    proof_3_num: '\u05d9\u05e9\u05d9\u05e8',
     proof_3: '\u05dc\u05d9\u05d5\u05d5\u05d9 \u05d0\u05d9\u05e9\u05d9 \u05d1\u05d5\u05d5\u05d0\u05e6\u05d0\u05e4',
     sub_detail_tag: '\u05d4\u05de\u05e0\u05d5\u05d9 \u05d0\u05d5\u05e9\u05e8',
     sub_detail_title: '\u05e2\u05d5\u05d3 \u05e6\u05e2\u05d3 \u05d0\u05d7\u05d3',
@@ -1654,6 +1696,9 @@ document.querySelectorAll('.hero .btn-primary, .hero .btn-secondary').forEach(fu
     trackEvent('hero_cta_click', { label: btn.textContent.trim() });
   });
 });
+fillAttributionHiddenFields('sefer');
+fillAttributionHiddenFields('signup');
+trackEvent('page_view', { lang: currentLang, path: window.location.pathname });
 
 
 </script>
